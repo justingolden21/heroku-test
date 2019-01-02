@@ -1,7 +1,11 @@
 //todo
 
-window.onload = function() {
+let num = 0;
 
+window.onload = function() {
+	$('#input').click(function() {
+		$('#output').html(++num);
+	});
 }
 
 window.onkeyup = function(e) {
