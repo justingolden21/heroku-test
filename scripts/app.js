@@ -18,7 +18,7 @@ function update() {
 	//stops browser from caching the number, to get most recent num
 	$.getJSON("data.json?stopcache=" + Date.now().toString(), function(data) {
 		num = parseInt(data);
-	}
+	});
 
 	$('#output').html(num);
 }
