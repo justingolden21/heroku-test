@@ -1,4 +1,4 @@
-let num = 0;
+let num = 1;
 
 window.onload = function() {
 	$('#input').click(function() {
@@ -21,7 +21,7 @@ function update() {
 	$.getJSON("number.json?stopcache=" + Date.now().toString(), function(data) {
 		console.log("got data: " + data);
 		num = parseInt(data);
-	});
 
-	$('#output').html(num);
+		$('#output').html(num);
+	});
 }
