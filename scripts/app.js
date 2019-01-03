@@ -2,11 +2,11 @@ let num = 0;
 
 window.onload = function() {
 	$('#input').click(function() {
-		num++;
+		$.get("/scripts/increment.php");
 
-		//send get request
-		$.get("/scripts/number.php?n=" + num);
+		console.log("click");
 
+		update();
 	});
 
 	setInterval(update, 100);
@@ -15,8 +15,11 @@ window.onload = function() {
 }
 
 function update() {
+	console.log("update");
+
 	//stops browser from caching the number, to get most recent num
-	$.getJSON("data.json?stopcache=" + Date.now().toString(), function(data) {
+	$.getJSON("number.json?stopcache=" + Date.now().toString(), function(data) {
+		console.log("got data: " + data);
 		num = parseInt(data);
 	});
 
